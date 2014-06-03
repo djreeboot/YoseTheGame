@@ -114,7 +114,9 @@
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PingController.cs" />
-    <Compile Include="Controllers\PrimeFactorsController.cs" />
+    <Compile Include="Controllers\PrimeFactorsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
