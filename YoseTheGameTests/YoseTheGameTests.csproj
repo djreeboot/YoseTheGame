@@ -66,6 +66,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PingControllerTest.cs" />
+    <Compile Include="PrimeFactorsControllerTest.cs" />
+    <Compile Include="PrimeFactorsModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
