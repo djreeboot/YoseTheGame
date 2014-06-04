@@ -24,19 +24,5 @@ namespace YoseTheGameTests
         {
             Assert.That(_result, Is.InstanceOf<JsonResult>());
         }
-
-        [Test]
-        public void ReturnsJsonWithNumber()
-        {
-            PrimeFactorsModel pfm = (PrimeFactorsModel)((JsonResult)_result).Data;
-            Assert.That(pfm.number, Is.EqualTo(2));
-        }
-
-        [Test]
-        public void ReturnsJsonWithValidDecomposition()
-        {
-            PrimeFactorsModel pfm = (PrimeFactorsModel)((JsonResult)_result).Data;
-            Assert.That(pfm.decomposition, Is.EqualTo(new List<int>{2}));
-        }
     }
 }
