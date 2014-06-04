@@ -2,22 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.WebPages;
 
 namespace YoseTheGame.Models
 {
     public class PrimeFactorsModel
     {
-        public int number { get; set; }
-        public List<int> decomposition { get; set; }
-
-        public void Decompose()
+        public Response Decompose(string number)
         {
-            decomposition = new List<int>();
-            int temp = number;
-            while (temp != 1)
+            if (number.IsInt())
             {
-                temp /= 2;
-                decomposition.Add(2);
+                int temp = int.Parse(number);
+                List<int> decomposition = new List<int>();
+                while (temp != 1)
+                {
+                    temp /= 2;
+                    decomposition.Add(2);
+                }
+
+                NumberResponse response = new NumberResponse();
+                response.number = int.Parse(number);
+                response.decomposition = decomposition;
+
+                return response;
+            }
+            else
+            {
+                ErrorResponse response = new ErrorResponse();
+                response.number = number;
+                response.error = "not a number";
+
+                return response;
             }
         }
     } 
