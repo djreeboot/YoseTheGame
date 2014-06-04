@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
-using YoseTheGame.Controllers;
 using YoseTheGame.Models;
 
 namespace YoseTheGameTests
 {
     [TestFixture]
-    public class PrimeFactorsModelTest
+    public class PrimeFactorsModelPowerOfTwoTest
     {
         private NumberResponse response = null;
 

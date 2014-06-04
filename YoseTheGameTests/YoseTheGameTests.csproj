@@ -67,10 +67,12 @@
     </Compile>
     <Compile Include="PingControllerTest.cs" />
     <Compile Include="PrimeFactorsControllerTest.cs" />
+    <Compile Include="PrimeFactorsModelBigNumberTest.cs" />
+    <Compile Include="PrimeFactorsModelPrimesTest.cs" />
     <Compile Include="PrimeFactorsModelStringTest.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PrimeFactorsModelTest.cs">
+    <Compile Include="PrimeFactorsModelPowerOfTwoTest.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
