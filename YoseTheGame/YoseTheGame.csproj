@@ -117,14 +117,17 @@
     <Compile Include="Controllers\PrimeFactorsController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controllers\PrimeFactorsUIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BigNumberResponse.cs" />
     <Compile Include="Models\ErrorResponse.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\NumberResponse.cs" />
     <Compile Include="Models\PrimeFactorsModel.cs" />
+    <Compile Include="Models\PrimeNumbers.cs" />
     <Compile Include="Models\Response.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -149,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Home.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PrimeFactorsUI\PrimeFactorsUI.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

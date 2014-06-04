@@ -14,10 +14,28 @@ namespace YoseTheGame.Controllers
 
         public ActionResult Index(string number)
         {
-            PrimeFactorsModel model = new PrimeFactorsModel();
-            Response response = model.Decompose(number);
-            return Json(response, JsonRequestBehavior.AllowGet);
-        }
+            string[] numbers = null;
 
+            try
+            {
+                numbers = Request.QueryString["number"].Split(',');
+            }
+            catch
+            {
+            }
+            
+            if (numbers == null || numbers.Length == 1)
+            {
+                PrimeFactorsModel model = new PrimeFactorsModel();
+                Response response = model.Decompose(number);
+                return Json(response, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                PrimeFactorsModel model = new PrimeFactorsModel();
+                List<Response> responses = model.Decompose(numbers);
+                return Json(responses, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

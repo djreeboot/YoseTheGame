@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PrimeFactorsUI</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#go").click(function () {
+                var url = "/primeFactors?number=" + $("#number").val();
+                $.getJSON(url, function (data) {
+
+                    var items = [];
+
+                    $.each(data, function (key, val) {
+
+                        if (key == "decomposition") {
+                            var output = "";
+                            for (var i = 0; i < val.length; i++) {
+                                if (i != val.length - 1)
+                                {
+                                    output = output + val[i] + " x ";
+                                }
+                                else {
+                                    output = output + val[i];
+                                }
+                            }
+
+                            items.push("<li id='" + key + "'>" + $("#number").val() + " = " + output + "</li>");
+                        }
+
+                        if (key == "error") {
+                            if (val == "not a number") {
+                                items.push("<li id='" + key + "'>" + $("#number").val() + " is " + val + "</li>");
+                            }
+                            else{
+                                items.push("<li id='" + key + "'>" + val + "</li>");
+                            }
+                        }
+
+                    });
+
+
+
+                    $("<ul/>", {
+
+                        "class": "my-new-list",
+
+                        html: items.join("")
+
+                    }).appendTo("#result");
+
+                });
+
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1 id="title">
+        Prime Factors Form        
+    </h1>
+    <p id="invitation">
+        Please input a number for prime factor decomposition.
+    </p>
+    <input type="text" id="number" />
+    <button id="go">GO</button>
+    
+    <p>
+        <div id="result" />
+    </p>
+</body>
+</html>
