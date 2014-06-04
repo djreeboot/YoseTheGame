@@ -15,9 +15,8 @@ namespace YoseTheGame.Controllers
         public ActionResult Index(string number)
         {
             PrimeFactorsModel model = new PrimeFactorsModel();
-            model.number = int.Parse(number);
-            model.Decompose();
-            return Json(model, JsonRequestBehavior.AllowGet);
+            Response response = model.Decompose(number);
+            return Json(response, JsonRequestBehavior.AllowGet);
         }
 
     }
